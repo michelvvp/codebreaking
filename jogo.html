@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        img{
-            height: 100px;
+        img {
+            width: 80%;
         }
+
         body {
             align-items: center;
             margin: 0;
@@ -20,14 +21,15 @@
             font-weight: 300;
             box-sizing: border-box;
             font-family: 'Lato', sans-serif;
-            background: rgba(0, 212, 255, 1);
+            background: rgb(200, 200, 200);
             padding-top: 0;
             user-select: none;
         }
 
         p {
             float: right;
-            margin: 10px;
+            margin: 10px 30px 10px 10px;
+            font-size: larger;
         }
 
         .caixa {
@@ -37,11 +39,12 @@
             border-radius: 10px;
             margin: 10px;
             float: right;
-
+            border: 2px solid rgb(149, 4, 21);
         }
 
         .caixa:hover {
             background-color: #E0E0E0;
+            border-color: rgba(169, 24, 41, 1)
         }
 
         #fundo {
@@ -54,25 +57,24 @@
         button {
             height: 50px;
             width: 30%;
-            background: rgb(34, 193, 195);
-            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(65, 45, 253, 1) 100%);
+            background: rgb(149, 4, 21);
             border: none;
             border-radius: 10px;
             outline: none;
             float: right;
             margin: 5% 34.5% 10% 34%;
             overflow: hidden;
-
+            font-size: large;
         }
 
         button:hover {
-            font-weight: bold;
+            background: rgba(159, 14, 31, 1)
         }
 
         select {
             border: none;
-            height: 80%;
-            width: 80%;
+            height: 100%;
+            width: 100%;
             margin: none;
             text-align: center;
             padding-left: 35%;
@@ -87,8 +89,7 @@
 
         @media (min-width: 800px) {
             body {
-                background: rgb(2, 0, 36);
-                background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 121, 71, 1) 35%, rgba(0, 212, 255, 1) 100%);
+                background: rgb(200, 200, 200);
                 padding: 0;
                 overflow: hidden;
             }
@@ -99,8 +100,8 @@
             }
 
             #fundo {
-                display: inline;
                 margin-right: calc((100% - 600px)/2);
+                display: inline;
             }
 
             button {
@@ -118,6 +119,14 @@
                 background: none;
             }
 
+            img {
+                height: 100px;
+                width: auto;
+            }
+
+            p {
+                font-size: x-large;
+            }
         }
     </style>
     <title>Jogo</title>
