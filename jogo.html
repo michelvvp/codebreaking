@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img{
+            height: 100px;
+        }
+        body {
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+            border: none;
+            outline: none;
+            font-weight: 300;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+            background: rgba(0, 212, 255, 1);
+            padding-top: 0;
+            user-select: none;
+        }
+
+        p {
+            float: right;
+            margin: 10px;
+        }
+
+        .caixa {
+            background-color: white;
+            height: 100px;
+            width: 95%;
+            border-radius: 10px;
+            margin: 10px;
+            float: right;
+
+        }
+
+        .caixa:hover {
+            background-color: #E0E0E0;
+        }
+
+        #fundo {
+            margin-top: 9%;
+            display: grid;
+            width: 100%;
+            float: right;
+        }
+
+        button {
+            height: 50px;
+            width: 30%;
+            background: rgb(34, 193, 195);
+            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(65, 45, 253, 1) 100%);
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            float: right;
+            margin: 5% 34.5% 10% 34%;
+            overflow: hidden;
+
+        }
+
+        button:hover {
+            font-weight: bold;
+        }
+
+        select {
+            border: none;
+            height: 80%;
+            width: 80%;
+            margin: none;
+            text-align: center;
+            padding-left: 35%;
+            outline: none;
+            background: none;
+            font-size: large;
+        }
+
+        option {
+            text-align: center;
+        }
+
+        @media (min-width: 800px) {
+            body {
+                background: rgb(2, 0, 36);
+                background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 121, 71, 1) 35%, rgba(0, 212, 255, 1) 100%);
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .caixa {
+                height: 100px;
+                width: 100px;
+            }
+
+            #fundo {
+                display: inline;
+                margin-right: calc((100% - 600px)/2);
+            }
+
+            button {
+                margin: 5% 34.5% 10% 34%;
+            }
+
+            select {
+                border: none;
+                height: 80%;
+                width: 80%;
+                margin: 10px;
+                text-align: center;
+                padding-left: 25%;
+                outline: none;
+                background: none;
+            }
+
+        }
+    </style>
+    <title>Jogo</title>
+</head>
+
+<body>
+    <img src="logo.png" alt="logo">
+    <p id="tent">Tentativas: 0</p>
+    <div id="fundo">
+        <div class="caixa">
+            <select name="1" id="c1">
+                <option value=0>A</option>
+                <option value=1>B</option>
+                <option value=2>C</option>
+                <option value=3>D</option>
+                <option value=4>E</option>
+                <option value=5>F</option>
+                <option value=6>G</option>
+                <option value=7>H</option>
+            </select>
+        </div>
+        <div class="caixa"> <select name="2" id="c2">
+                <option value=0>A</option>
+                <option value=1>B</option>
+                <option value=2>C</option>
+                <option value=3>D</option>
+                <option value=4>E</option>
+                <option value=5>F</option>
+                <option value=6>G</option>
+                <option value=7>H</option>
+            </select></div>
+        <div class="caixa">
+            <select name="3" id="c3">
+                <option value=0>A</option>
+                <option value=1>B</option>
+                <option value=2>C</option>
+                <option value=3>D</option>
+                <option value=4>E</option>
+                <option value=5>F</option>
+                <option value=6>G</option>
+                <option value=7>H</option>
+            </select>
+        </div>
+        <div class="caixa">
+            <select name="4" id="c4">
+                <option value=0>A</option>
+                <option value=1>B</option>
+                <option value=2>C</option>
+                <option value=3>D</option>
+                <option value=4>E</option>
+                <option value=5>F</option>
+                <option value=6>G</option>
+                <option value=7>H</option>
+            </select>
+        </div>
+        <div class="caixa">
+            <select name="5" id="c5">
+                <option value=0>A</option>
+                <option value=1>B</option>
+                <option value=2>C</option>
+                <option value=3>D</option>
+                <option value=4>E</option>
+                <option value=5>F</option>
+                <option value=6>G</option>
+                <option value=7>H</option>
+            </select>
+        </div>
+    </div>
+    <button onclick="testar()"> Testar</button>
+    <script>
+        alert("Uma senha com 5 letras de A até H foi gerada, tente adivinha-la")
+        var ret
+        var tent = document.querySelector("#tent");
+        var tentativas = 0
+        var senha = [];
+        for (let index = 0; index < 5; index++) {
+            senha.push(Math.floor(Math.random() * 8))
+        }
+        //alert(senha[0] + " " + senha[1] + " " + senha[2] + " " + senha[3] + " " + senha[4])
+        function testar() {
+            tentativas++;
+            tent.textContent = "Tentativas: " + tentativas;
+            var jaFoiSenha = [];
+            for (let index = 0; index < 5; index++) {
+                jaFoiSenha.push(false)
+            }
+            var c1 = document.querySelector("#c1")
+            var c2 = document.querySelector("#c2")
+            var c3 = document.querySelector("#c3")
+            var c4 = document.querySelector("#c4")
+            var c5 = document.querySelector("#c5")
+            var vetor = [];
+            vetor.push(c1.value);
+            vetor.push(c2.value);
+            vetor.push(c3.value);
+            vetor.push(c4.value);
+            vetor.push(c5.value);
+            var Certos = 0;
+            var CasaDiferente = 0;
+            for (var i = 0; i < 5; i++) {
+                if (vetor[i] == senha[i]) {
+                    jaFoiSenha[i] = true;
+                    Certos++;
+                }
+            }
+            for (let index = 0; index < 5; index++) {
+                for (let index2 = 0; index2 < 5; index2++) {
+                    if (vetor[index] == senha[index2] && !jaFoiSenha[index2] && !jaFoiSenha[index]) {
+                        jaFoiSenha[index] = true;
+                        jaFoiSenha[index2] = true;
+                        CasaDiferente++
+                    }
+                }
+            }
+            if (Certos == 1) {
+                ret = "1 Resposta certa no lugar certo\n "
+            } else {
+                ret = Certos + " respostas certas no lugar certo\n"
+            }
+            if (CasaDiferente == 1) {
+                ret += "1 Resposta certa no lugar errado"
+            } else {
+                ret += CasaDiferente + " respostas certas em lugares errados"
+            }
+            if (Certos == 5) {
+                alert("SENHA CORRETA \nPARABÉNS")
+                location.reload();
+            } else {
+                alert(ret)
+            }
+        }
+    </script>
+</body>
+
+</html>
