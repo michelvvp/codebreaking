@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="sortcut icon" href="icone.ico" type="image/x-icon" />;
     <style>
         img {
             width: 80%;
@@ -87,7 +88,7 @@
             text-align: center;
         }
 
-        @media (min-width: 800px) {
+        @media (min-width: 780px) {
             body {
                 background: rgb(200, 200, 200);
                 padding: 0;
@@ -129,7 +130,7 @@
             }
         }
     </style>
-    <title>Jogo</title>
+    <title>Code Breaking</title>
 </head>
 
 <body>
@@ -205,14 +206,10 @@
         for (let index = 0; index < 5; index++) {
             senha.push(Math.floor(Math.random() * 8))
         }
-        //alert(senha[0] + " " + senha[1] + " " + senha[2] + " " + senha[3] + " " + senha[4])
         function testar() {
             tentativas++;
             tent.textContent = "Tentativas: " + tentativas;
-            var jaFoiSenha = [];
-            for (let index = 0; index < 5; index++) {
-                jaFoiSenha.push(false)
-            }
+            var jaFoiSenha = [false, false, false, false, false];
             var c1 = document.querySelector("#c1")
             var c2 = document.querySelector("#c2")
             var c3 = document.querySelector("#c3")
