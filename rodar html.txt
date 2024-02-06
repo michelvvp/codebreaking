@@ -1,6 +1,0 @@
-	
-python3 -m http.server
-
-./ngrok http 80
-
-teste
